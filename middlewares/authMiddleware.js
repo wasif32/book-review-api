@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const config = require("../config"); // Make sure you import config here
+const config = require("../config"); // Load secret key from env
 
+// @desc   Middleware to protect routes using JWT authentication
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  const token = authHeader?.split(" ")[1];
+  const token = authHeader?.split(" ")[1]; // Expecting format: "Bearer <token>"
 
   if (!token) {
     console.log("Token missing - returning 401");
@@ -12,6 +13,7 @@ module.exports = async (req, res, next) => {
   }
 
   try {
+    // Verify JWT and attach user info to request object
     const decoded = jwt.verify(token, config.jwtSecret);
     req.user = await User.findById(decoded.id);
     next();
