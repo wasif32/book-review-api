@@ -20,7 +20,7 @@ A RESTful API built using **Node.js**, **Express.js**, and **MongoDB** for manag
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/book-review-api.git
+git clone https://github.com/wasif32/book-review-api.git
 cd book-review-api
 ```
 
@@ -184,15 +184,6 @@ curl http://localhost:5000/api/books/search?q=habit
   "updatedAt": Date
 }
 ```
-
----
-
-## ✅ Submission
-
-- Push to GitHub: [your-repo-link-here]
-- Submit the repo link in the Airtable form as instructed.
-
----
 
 ## ✅ Author
 
